@@ -13,26 +13,24 @@
 body {
     color: var(--grayblue);
     font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
     font-family: 'Karla', sans-serif;
     background: var(--ltgray);
-    width: 99%;
-    height: 100%;
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 /* CARD WRAPPER */
 .card-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 
-        "top top"
-        "middle middle"
-        "bottom bottom";
-    width: 60%;
-    /* margin-top: 10rem; */
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px 3px hsl(0, 0%, 85%);
+    margin: 2rem;
 }
 
 /* TOP OF CARD */
@@ -40,12 +38,13 @@ body {
     background: white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 3rem;
+    padding:  1rem 3rem;
     grid-area: top;
 }
 
 h1 {
     color: var(--cyan);
+    font-weight: 700;
 }
 
 h2 {
@@ -56,9 +55,37 @@ h2 {
 .mid-left {
     background: var(--cyan);
     grid-area: middle;
+    padding: 1rem 3rem;
 }
 h3 {
+    color: var(--ltgray);
+    font-weight: 700;
+}
+#price {
+    display: flex;
+    align-items: center;
+    color: hsl(204, 43%, 83%);
+}
+#price span {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 10px;
+    color: var(--ltgray);
+}
+.mid-left p {
+    color: var(--ltgray);
+}
+button {
+    background: var(--neongreen);
+    border: none;
     color: white;
+    font-size: 1.25em;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 100%;
+    line-height: 2em;
+    margin-bottom: 1rem;
 }
 
 
@@ -66,14 +93,39 @@ h3 {
 .bottom-right {
     background: #4abebd;
     grid-area: bottom;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1rem 3rem;
+}
+ul {
+    padding-left: 0;
+}
+li {
+    list-style-type: none;
+    color: var(--ltgray);
+    font-weight: 400;
 }
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {
+    body {
+        min-height: 100vh;
+    }
     .card-wrapper {
-        grid-template-areas: 
-            "top top"
-            "middle bottom"
-            "middle bottom";
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .top {
+        width: 100%;
+    }
+    .mid-left,
+    .bottom-right {
+        width: 50%;
+    }
+    .mid-left {
+        border-bottom-left-radius: 10px;
+    }
+    .bottom-right {
+        border-bottom-left-radius: 0;
     }
 }
