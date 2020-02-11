@@ -125,9 +125,9 @@ li {
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     body {
-        min-height: 100vh;
+        height: 98vh;
     }
     .top,
     .mid-left,
